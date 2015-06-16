@@ -7,7 +7,7 @@ myApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-myApp.controller('TestCtrl',
+myApp.controller('EmployeeCtrl',
     function ($scope, $http) {
 
         //  here we'll load our list of employees from our JSON Web Service 

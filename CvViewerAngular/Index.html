@@ -3,27 +3,32 @@
     <head>
         <title>CV-Viewer</title>
         <link href="/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="MasterDetailStyles.css" rel="stylesheet" media="screen">
         <script src="/Scripts/angular.js"></script>
-        <script src="/Scripts/angular-route.js"></script>
-        <script src="/App/app.js"></script>
+        <script src="/App/TestCtrl.js"></script>
         <script src="/App/controllers/employeeController.js"></script>
     </head>
     <body>
-        <div>
-            <div class="jumbotron"><h1>Angular demo app using ASP.NET WEB API backend</h1>
+        <div id="divMasterDetailWrapper" ng-controller='TestCtrl'>
+
+            <!-- First, we have our left-hand list of Employee records -->
+            <div id="divMasterView">
+                <div id="{{Employee.EmployeeId}}" class="cssOneRecord" ng-class="{selectedRecord: Employee.Id == selectedEmployee}" ng-repeat='Employee in listOfEmployees' ng-click="selectEmployee(Employee);">
+                    <div>{{Employee.FirstName}} {{Employee.LastName}}</div>
+                </div>
             </div>
-
-        </div>
-
-        <div ng-controller="employeeController">
-            <div ng-view>
+            <!-- Then, we have our right-hand panel, showing one Employee's details -->
+            <div id="divDetailView">
+                <!-- Details of Employee -->
+                <!-- TODO: edit! -->
+                <div id="Detail_{{Detail.EmployeeID}}" class="cssOneOrderRecord">
+                    <div>
+                        <div class="label-success">{{listOfDetails.Id}}</div>
+                        <div class="label-danger">{{listOfDetails.FirstName}}</div>
+                        <div class="label-success">{{listOfDetails.LastName}}</div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div ng-controller="Ctrl2">
-            <h3>Details</h3>
-            <div>The description is: {{details.description}} </div>
-        </div>
-
     </body>
 </html>

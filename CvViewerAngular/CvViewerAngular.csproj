@@ -61,7 +61,6 @@
     <Content Include="App\app.js" />
     <Content Include="App\controllers\employeeController.js" />
     <Content Include="App\TestCtrl.js" />
-    <Content Include="App\MasterDetailCtrl.js" />
     <Content Include="App\views\home - Copy.html" />
     <Content Include="App\views\employeeList.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -71,8 +70,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Icon.png" />
     <Content Include="images\personIcon.jpg" />
-    <Content Include="Employees.html" />
-    <Content Include="master.html" />
     <Content Include="Index.html" />
     <Content Include="MasterDetailStyles.css" />
     <Content Include="packages.config" />

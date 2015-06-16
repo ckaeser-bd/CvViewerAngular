@@ -1,9 +1,7 @@
 ﻿'use strict';
 
-app.controller('homeController', [
+app.controller('employeeController', [
     '$scope', 'employeeService', function($scope, employeeService) {
-        $scope.message = "Now viewing home!";
-
         $scope.employees = {
             EmployeeId: "",
             FirstName: "",
@@ -29,3 +27,4 @@ app.service('employeeService', ['$http', function ($http) {
         });;
     };
 }]);
+

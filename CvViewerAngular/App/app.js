@@ -2,18 +2,10 @@
 .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
-          templateUrl: 'app/views/home.html',
-          controller: 'homeController'
-      })
-      .when('/about', {
-          templateUrl: 'app/views/about.html',
-          controller: 'aboutController'
+          templateUrl: 'app/views/employeeList.html',
+          controller: 'employeeController'
       })
       .otherwise({
           redirectTo: '/'
       });
 }])
-.controller('mainController', function ($scope) {
-    $scope.message = "Main Content";
-});;
-

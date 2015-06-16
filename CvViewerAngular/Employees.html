@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+    <head>
+        <title>CV-Viewer</title>
+        <link href="/Content/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="MasterDetailStyles.css" rel="stylesheet" media="screen">
+        <script src="/Scripts/angular.js"></script>
+        <script src="/Scripts/angular-route.js"></script>
+        <script src="/App/app.js"></script>
+        <script src="/App/TestCtrl.js"></script>
+        <script src="/App/controllers/employeeController.js"></script>
+    </head>
+    <body>
+
+        
+        <div id="divMasterDetailWrapper" ng-controller='TestCtrl' style="position: relative;">
+
+            <!-- First, we have our left-hand list of Employee names -->
+            <div id="divMasterView">
+                <div id="{{Employee.EmployeeId}}" class="cssOneCompanyRecord" ng-class="{cssCompanySelectedRecord: employee.EmployeeId == selectedEmployee}" ng-repeat='Employee in listOfEmployees' ng-click="selectEmployee(Employee);">
+                    <div class="cssCompanyName">{{Employee.EmployeeId}}</div>
+                    <div class="cssCompanyCity">{{Employee.FirstName}}</div>
+                    <div class="cssCustomerID">{{Employee.LastName}}</div>
+                    <img src='/images/personIcon.jpg' title="This is a tooltip for : {{employee.FirstName}} {{employee.LastName}}" cl class="cssCustomerIcon" />
+                </div>
+            </div>
+            
+            <!-- Then, we have our right-hand panel, showing one Employee's details -->
+            <div id="divDetailView">
+                <!-- Details of Employee -->
+                <!-- TODO: edit! -->
+                <div id="Detail_{{Detail.EmployeeID}}" class="cssOneOrderRecord">
+                    <div>
+                        <div class="label-success">{{listOfDetails.Id}}</div>
+                        <div class="label-danger">{{listOfDetails.FirstName}}</div>
+                        <div class="label-success">{{listOfDetails.LastName}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,9 +1,8 @@
-﻿<div ng-controller="homeController">
-    <h1>{{message}}</h1>
-
+﻿<div ng-controller="employeeController">
     <div ng-repeat="employee in employees">
         <label>{{employee.EmployeeId}}</label>
         <label>{{employee.FirstName}}</label>
         <label>{{employee.LastName}}</label>
+        <a href="">{{employee.LastName}}</a>
     </div>
 </div>

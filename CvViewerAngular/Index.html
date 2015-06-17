@@ -6,14 +6,14 @@
         <link href="/css/MasterDetailStyles.css" rel="stylesheet" media="screen">
         <script src="/Scripts/angular.js"></script>
         <script src="/App/EmployeeCtrl.js"></script>
-        <script src="/App/controllers/employeeController.js"></script>
     </head>
     <body>
         <div id="divMasterDetailWrapper" ng-controller='EmployeeCtrl'>
 
-            <!-- First, we have our left-hand list of Employee records -->
+            <!-- First, we have our left-hand filterable list of Employee records -->
             <div id="divMasterView">
-                <div id="{{Employee.EmployeeId}}" class="cssOneRecord" ng-class="{selectedRecord: Employee.Id == selectedEmployee}" ng-repeat='Employee in listOfEmployees' ng-click="selectEmployee(Employee);">
+                <label>Search: <input ng-model="searchText" autofocus></label>
+                <div id="{{Employee.EmployeeId}}" class="cssOneRecord" ng-class="{selectedRecord: Employee.Id == selectedEmployee}" ng-repeat='Employee in listOfEmployees | filter:searchText | orderBy:"LastName"' ng-click="selectEmployee(Employee);">
                     <div>{{Employee.FirstName}} {{Employee.LastName}}</div>
                 </div>
             </div>
@@ -23,11 +23,21 @@
                 <!-- TODO: edit! -->
                 <div id="Detail_{{Detail.EmployeeID}}" class="cssOneOrderRecord">
                     <div>
-                        <div class="label-success">{{listOfDetails.Id}}</div>
-                        <div class="label-danger">{{listOfDetails.FirstName}}</div>
-                        <div class="label-success">{{listOfDetails.LastName}}</div>
+                        <table>                           
+                            <tr>
+                                <td>Lastname: </td>
+                                <td><input ng-model="listOfDetails.LastName"/></td>
+                            </tr>
+                            <tr>
+                                <td>Firstname: </td>
+                                <td><input ng-model="listOfDetails.FirstName" /></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
+                <button id="saveButton" ng-click="sendPut()" type="submit">Save</button>
+                <button id="addButton" ng-click="sendPost()" type="submit">Add</button>
+                <button id="deleteButton" ng-click="sendDelete()" type="submit">Delete</button>
             </div>
         </div>
     </body>
